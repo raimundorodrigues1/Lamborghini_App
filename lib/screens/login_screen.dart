@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:logininflutter/screens/home_screen.dart';
+import 'package:logininflutter/screens/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -102,14 +104,19 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: RaisedButton(
                       color: Colors.black,
                       child: Text(
-                        'Login',
+                        'LOGIN',
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
                             color: Colors.amber),
                       ),
                       onPressed: () {
-                        if (_formKey.currentState.validate()) {}
+                        if (_formKey.currentState.validate()) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
+                        }
                       },
                     ),
                   ),
@@ -135,7 +142,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => RegisterScreen()));
+                          },
                         ),
                       ],
                     ),
